@@ -10,14 +10,18 @@
     </head>
     <body>
         <div class="page-header">
+            {% if user.is_authenticated %}
+                <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            {% endif %}    
             <h1><a href="/">Django Girls Blog</a></h1>
+            <!-- we'll call our new view post_new. The class "glyphicon glyphicon-plus" is provided by the bootstrap theme we are using, and will display a plus sign for us.-->
         </div>
 
         <div class="content container">
             <div class="row">
                 <div class="col-md-8">
-                {% block content %}
-                {% endblock %}    
+                    {% block content %}
+                    {% endblock %}    
                 </div>
             </div>           
         </div>
